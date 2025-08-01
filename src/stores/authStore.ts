@@ -34,6 +34,25 @@ export const useAuthStore = defineStore("auth", () => {
     }
   }
 
+  // Register a new user
+  async function signup(
+    username: string,
+    password: string,
+    email: string,
+    gender: string,
+    age: number
+  ) {
+    try {
+      await axios.get("/register-get", {
+        params: { name: username, email, gender, age, password },
+      });
+      return true;
+    } catch (error) {
+      console.error("Signup failed:", error);
+      return false;
+    }
+  }
+
   // Fetch current user info from backend
   async function fetchCurrentUser() {
     if (!token.value) return;
@@ -94,25 +113,6 @@ export const useAuthStore = defineStore("auth", () => {
       console.log("Password change response:", response);
     } catch (error) {
       console.error("Password change failed:", error);
-    }
-  }
-
-  // Register a new user
-  async function signup(
-    username: string,
-    password: string,
-    email: string,
-    gender: string,
-    age: number
-  ) {
-    try {
-      await axios.get("/registerUserGet", {
-        params: { name: username, email, gender, age, password },
-      });
-      return true;
-    } catch (error) {
-      console.error("Signup failed:", error);
-      return false;
     }
   }
 

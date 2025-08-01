@@ -1,13 +1,14 @@
 import { createRouter, createWebHistory } from "vue-router";
 
-import PreLogin from "../views/prelogin/PreLogin.vue";
-import PostLogin from "../views/postlogin/PostLogin.vue";
-import LoginSignup from "../components/LoginSignup.vue";
-import Profile from "../views/postlogin/Profile.vue";
-import ChangePassword from "../views/postlogin/ChangePassword.vue";
-import AddTask from "../views/postlogin/AddTask.vue";
 import { useAuthStore } from "../stores/authStore";
+import AddTask from "../views/postlogin/AddTask.vue";
+import ChangePassword from "../views/postlogin/ChangePassword.vue";
 import Dashboard from "../views/postlogin/Dashboard.vue";
+import PostLogin from "../views/postlogin/PostLogin.vue";
+import Profile from "../views/postlogin/Profile.vue";
+import LoginView from "../views/prelogin/LoginView.vue";
+import PreLogin from "../views/prelogin/PreLogin.vue";
+import SignupView from "../views/prelogin/SignupView.vue";
 
 const routes = [
   {
@@ -15,8 +16,8 @@ const routes = [
     component: PreLogin,
     redirect: { name: "login" },
     children: [
-      { name: "login", path: "login", component: LoginSignup },
-      { name: "signup", path: "signup", component: LoginSignup },
+      { name: "login", path: "login", component: LoginView },
+      { name: "signup", path: "signup", component: SignupView },
     ],
   },
   {
