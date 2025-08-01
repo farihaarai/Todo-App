@@ -50,7 +50,7 @@ import {
     MDBDropdownItem,
 } from 'mdb-vue-ui-kit';
 import { ref } from 'vue';
-import { useAuthStore } from '../stores/authStore';
+import { useAuthStore } from '../../stores/authStore';
 
 
 const router = useRouter();

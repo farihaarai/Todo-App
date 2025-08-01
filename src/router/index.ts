@@ -1,13 +1,13 @@
 import { createRouter, createWebHistory } from "vue-router";
 
-import PreLogin from "../components/PreLogin.vue";
-import PostLogin from "../components/PostLogin.vue";
+import PreLogin from "../views/prelogin/PreLogin.vue";
+import PostLogin from "../views/postlogin/PostLogin.vue";
 import LoginSignup from "../components/LoginSignup.vue";
-import Profile from "../components/Profile.vue";
-import ChangePassword from "../components/ChangePassword.vue";
-import Dashboard from "../components/Dashboard.vue";
-import AddTask from "../components/AddTask.vue";
+import Profile from "../views/postlogin/Profile.vue";
+import ChangePassword from "../views/postlogin/ChangePassword.vue";
+import AddTask from "../views/postlogin/AddTask.vue";
 import { useAuthStore } from "../stores/authStore";
+import Dashboard from "../views/postlogin/Dashboard.vue";
 
 const routes = [
   {

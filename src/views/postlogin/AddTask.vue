@@ -14,9 +14,9 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
-import { useAuthStore } from '../stores/authStore';
+import { useTodoStore } from '../../stores/todoStore';
 
-const authStore = useAuthStore();
+const todoStore = useTodoStore();
 const router = useRouter();
 const newTask = ref('');
 
@@ -24,7 +24,7 @@ const newTask = ref('');
 async function submitTask() {
     if (newTask.value.trim()) {
         try {
-            await authStore.addTask(newTask.value.trim());
+            await todoStore.addTask(newTask.value.trim());
             newTask.value = '';
             router.push({ name: 'dashboard' });
         } catch (error) {

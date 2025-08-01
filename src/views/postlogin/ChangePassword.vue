@@ -21,7 +21,7 @@
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { MDBInput, MDBBtn } from 'mdb-vue-ui-kit'
-import { useAuthStore } from '../stores/authStore'
+import { useAuthStore } from '../../stores/authStore'
 
 // Access the router instance for navigation
 const router = useRouter()

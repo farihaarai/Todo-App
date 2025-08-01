@@ -22,9 +22,9 @@
 <script setup lang="ts">
 // Import necessary tools and components
 import { ref, watch } from 'vue';
-import { useAuthStore } from '../stores/authStore'; // Import auth store
+import { useAuthStore } from '../../stores/authStore'; // Import auth store
 import { MDBInput, MDBBtn } from 'mdb-vue-ui-kit'; // Import MDB components
-import router from '../router'; // Import Vue Router
+import router from '../../router'; // Import Vue Router
 
 // Access the authentication store
 const authStore = useAuthStore();

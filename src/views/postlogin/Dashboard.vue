@@ -17,22 +17,23 @@
 </template>
 
 <script setup lang="ts">
-import { useAuthStore } from '../stores/authStore';
+// import { useAuthStore } from '../stores/authStore';
 import { RouterLink } from 'vue-router';
-import TodoItem from './TodoItem.vue';
 import { computed, onMounted } from 'vue';
-import type { Task } from '../models/task';
+import type { Task } from '../../models/task';
+import { useTodoStore } from '../../stores/todoStore';
+import TodoItem from '../../components/TodoItem.vue';
 
 // Access the authentication store
-const authStore = useAuthStore();
-
+// const authStore = useAuthStore();
+const todoStore = useTodoStore();
 // Fetch tasks when the component is mounted
 onMounted(() => {
-    authStore.fetchTasks();
+    todoStore.fetchTasks();
 });
 
 // Reactive computed property to get the current user's tasks
-const tasks = computed(() => authStore.currentUser?.tasks ?? []);
+const tasks = computed(() => todoStore.tasks);
 
 // Toggle the completed state of a task
 function toggleComplete(task: Task) {
@@ -41,11 +42,11 @@ function toggleComplete(task: Task) {
 
 // Remove a task using the store
 function removeTask(task: Task) {
-    authStore.removeTask(task);
+    todoStore.removeTask(task);
 }
 
 // Update a task's description using the store
 function updateTask(task: Task, newDescription: string) {
-    authStore.updateTask(task, newDescription);
+    todoStore.updateTask(task, newDescription);
 }
 </script>
