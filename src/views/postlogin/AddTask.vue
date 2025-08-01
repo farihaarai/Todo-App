@@ -3,7 +3,7 @@
         <h2>Add a New Task</h2>
 
         <!-- Input field for entering new task -->
-        <input type="text" v-model="newTask" class="form-control mb-2" placeholder="Enter task" />
+        <input type="text" class="form-control mb-2" placeholder="Enter task" />
 
         <!-- Button to trigger task submission -->
         <button class="btn btn-success" @click="submitTask">Add</button>
@@ -22,6 +22,8 @@ const newTask = ref('');
 
 // Function to submit a new task
 async function submitTask() {
+    console.log("Submitting task", newTask.value);
+
     if (newTask.value.trim()) {
         try {
             await todoStore.addTask(newTask.value.trim());

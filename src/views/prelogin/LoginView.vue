@@ -4,7 +4,7 @@
         <label>Email</label>
     </div>
     <div class="form-outline mb-4">
-        <input type="password" v-model="loginData.password" />
+        <input type="password" :value="loginData.password" />
         <label>Password</label>
     </div>
     <button class="btn btn-primary" @click="login">Login</button>
@@ -25,6 +25,8 @@ const loginData = ref({ email: '', password: '' });
 
 // Handles login logic
 const login = async () => {
+    console.log("Logging in", loginData.value);
+
     const success = await authStore.login(loginData.value.email, loginData.value.password);
     if (success) {
         await authStore.fetchCurrentUser(); // Fetch user info after successful login
@@ -33,6 +35,9 @@ const login = async () => {
         alert("Login failed"); // Display login error
     }
 };
+
+console.debug(login);
+
 
 </script>
 

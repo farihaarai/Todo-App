@@ -13,7 +13,7 @@ export const useAuthStore = defineStore("auth", () => {
   // Log in a user using email and password
   async function login(email: string, password: string) {
     try {
-      const response = await axios.post("/login", {
+      const response = await axios.post("/loginUser", {
         email,
         password,
       });
@@ -43,7 +43,7 @@ export const useAuthStore = defineStore("auth", () => {
     age: number
   ) {
     try {
-      await axios.get("/register-get", {
+      await axios.get("/registerUserGet", {
         params: { name: username, email, gender, age, password },
       });
       return true;

@@ -22,48 +22,17 @@ export const useTodoStore = defineStore("todo", () => {
 
   // Add a new task for the current user
   async function addTask(description: string) {
-    try {
-      const response = await axios.post("/user/toDo", { description });
-      const createdTask = response.data;
-
-      // Add task to local user tasks
-      tasks.value.push(createdTask);
-    } catch (error) {
-      console.error("Failed to add task:", error);
-    }
+    // TODO: implement add task
   }
 
   // Update an existing task's description
-  async function updateTask(task: Task, newDescription: string) {
-    try {
-      const response = await axios.put(`/user/toDo/${task.id}`, {
-        description: newDescription,
-      });
-
-      // Update local task list
-      const updatedTask = response.data;
-      const targetTask = tasks.value.find((t) => t.id === task.id);
-      if (targetTask) {
-        targetTask.description = updatedTask.description;
-      }
-    } catch (error) {
-      console.error("Failed to update task:", error);
-    }
+  async function updateTask() {
+    // TODO: implement update task
   }
 
   // Delete a task from current user's list
-  async function removeTask(task: Task) {
-    try {
-      await axios.delete(`/user/toDo/${task.id}`);
-
-      // Remove task from local list
-      const index = tasks.value.findIndex((t) => t.id === task.id);
-      if (index !== -1) {
-        tasks.value.splice(index, 1);
-      }
-    } catch (error) {
-      console.error("Failed to delete task:", error);
-    }
+  async function removeTask() {
+    // TODO: implement remove task
   }
 
   // Expose state and functions
